@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Buat Aplikasi Pertama Kali</string>
+    <string name="bilangan_pertama">bilangan pertama</string>
+    <string name="bilangan_kedua">bilangan kedua</string>
+    <string name="result">Result</string>
+    <string name="del">del</string>
+</resources>
