@@ -2,6 +2,7 @@ package io.github.bayu1993.buataplikasipertamakali;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    public static final String STATE_RESULT = "state_result";
     private EditText edtBil1;
     private EditText edtBil2;
     private Button btnAdd;
@@ -41,6 +43,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnMultiple.setOnClickListener(this);
         btnDivision.setOnClickListener(this);
         btnClear.setOnClickListener(this);
+
+        if (null != savedInstanceState){
+            String hasil = savedInstanceState.getString(STATE_RESULT);
+            tvResult.setText(hasil);
+        }
     }
 
     private boolean validation() {
@@ -122,5 +129,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putString(STATE_RESULT,tvResult.getText().toString());
+        super.onSaveInstanceState(outState);
     }
 }
