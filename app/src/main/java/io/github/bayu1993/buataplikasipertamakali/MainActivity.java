@@ -1,5 +1,6 @@
 package io.github.bayu1993.buataplikasipertamakali;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -44,6 +45,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDivision.setOnClickListener(this);
         btnClear.setOnClickListener(this);
 
+        tvResult.setVisibility(View.GONE);
+
         if (null != savedInstanceState){
             String hasil = savedInstanceState.getString(STATE_RESULT);
             tvResult.setText(hasil);
@@ -76,28 +79,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         double bilangan1 = Double.parseDouble(bil1);
         double bilangan2 = Double.parseDouble(bil2);
         double hasil = bilangan1 / bilangan2;
-        tvResult.setText(String.valueOf(hasil));
+        //tvResult.setText(String.valueOf(hasil));
+        Intent resultIntent = new Intent(MainActivity.this, ResultActivity.class);
+        resultIntent.putExtra(ResultActivity.RESULT_EXTRAS,hasil);
+        startActivity(resultIntent);
     }
 
     private void multipication() {
         double bilangan1 = Double.parseDouble(bil1);
         double bilangan2 = Double.parseDouble(bil2);
         double hasil = bilangan1 * bilangan2;
-        tvResult.setText(String.valueOf(hasil));
+        Intent resultIntent = new Intent(MainActivity.this, ResultActivity.class);
+        //tvResult.setText(String.valueOf(hasil));
+        resultIntent.putExtra(ResultActivity.RESULT_EXTRAS,hasil);
+        startActivity(resultIntent);
     }
 
     private void addition() {
         double bilangan1 = Double.parseDouble(bil1);
         double bilangan2 = Double.parseDouble(bil2);
         double hasil = bilangan1 + bilangan2;
-        tvResult.setText(String.valueOf(hasil));
+        Intent resultIntent = new Intent(MainActivity.this, ResultActivity.class);
+        //tvResult.setText(String.valueOf(hasil));
+        resultIntent.putExtra(ResultActivity.RESULT_EXTRAS,hasil);
+        startActivity(resultIntent);
     }
 
     private void substraction() {
         double bilangan1 = Double.parseDouble(bil1);
         double bilangan2 = Double.parseDouble(bil2);
         double hasil = bilangan1 - bilangan2;
-        tvResult.setText(String.valueOf(hasil));
+        Intent resultIntent = new Intent(MainActivity.this, ResultActivity.class);
+        //tvResult.setText(String.valueOf(hasil));
+        resultIntent.putExtra(ResultActivity.RESULT_EXTRAS,hasil);
+        startActivity(resultIntent);
     }
 
     @Override
